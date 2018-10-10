@@ -18,6 +18,17 @@ export function formatTime (date) {
   return `${t1} ${t2}`
 }
 
+export function get(url){
+  return new Promise((resolve) => {
+    wx.request({
+      url: config.host + url,
+      success: function(res){
+        reslove(res.data.data)
+      }
+    })
+  })
+}
+
 export default {
   formatNumber,
   formatTime
